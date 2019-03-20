@@ -11,7 +11,9 @@ header {
 }
 
 article {
+  box-sizing: border-box;
   margin: 10px;
+  padding: 15px;
 }
 
 .title {
@@ -62,6 +64,7 @@ article {
  border: 1px solid black;
  margin-top: 10px;
 }
+
 label,
 .update {
  display: block;
@@ -71,6 +74,24 @@ button {
  background-color: #6E6E6E;
  color: #FFF;
  border-radius: 20px;
+ height: 35px;
+ text-transform: uppercase;
+}
+
+.box1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.box1 input {
+  width: 160px;
+  height: 30px;
+}
+
+.box1 button {
+  align-self: flex-end;
+  width: 120px;
+
 }
 
 .high,
@@ -79,19 +100,22 @@ button {
  text-decoration: underline;
 }
 
+.command-buttons {
+  display: flex;
+  justify-content: space-between;
+
+}
+.command-buttons button {
+  flex: 1;
+  margin: 15px;
+}
 .column2 {
   display: inline-block;
   box-sizing: border-box;
   float: left;
   width: 50%;
-  height: 100%;
-  background-color: #d1d2d4;
-  margin-left: auto;
-  display: flex;
   border-left: 2px solid #aaaaaa;
-  flex-direction: column-reverse;
-  justify-content: flex-end; 
-
+  background-color: #d1d2d4;
 }
 
 .scorecard {

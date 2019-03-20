@@ -12,11 +12,17 @@
  <section class="column">
    <article class="range">
      <h3>Set Range</h3>
+   <div class=box1>
+      <form>
      <label for="min">Min Range</label>
      <input type="text" name="minrange" id="min">
-     <label for="max">Min Range</label>
+      </form>
+      <form>
+     <label for="max">Max Range</label>
      <input type="number" name="maxrange" id="max">
+   </form>
      <button class="update">Update</button>
+   </div>
    </article>
    <article class="challengers">
      <p>The Current Range is <span class="low">1</span> to <span class="high">100</span></p>
@@ -31,9 +37,11 @@
      <label for="guess-2">Guess</label>
      <input type="number" name="guess" id="guess-2">
      <br>
-     <button class="submit">Submit Guess</button>
-     <button class="reset">Reset Game</button>
-     <button class="clear">Clear Game</button>
+     <div class="command-buttons">
+      <button class="submit">Submit Guess</button>
+      <button class="reset">Reset Game</button>
+      <button class="clear">Clear Game</button>
+    </div>
    </article>
    <article class="score">
      <h3>Latest Score</h3>
