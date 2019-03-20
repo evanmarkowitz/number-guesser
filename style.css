@@ -3,6 +3,7 @@ font-family: 'Open Sans', sans-serif;
 box-sizing: border-box;
 margin: 0px;
 padding: 0px;
+background: #d1d2d4;
 }
 
 header {
@@ -31,6 +32,7 @@ article {
  width: 50%;
  display: inline-block;
  float: left;
+ border-right: 2px solid #aaaaaa;
 }
 
 .title-guesser {
@@ -61,7 +63,7 @@ article {
 .range,
 .challengers,
 .score {
- border: 1px solid black;
+ border: 1px solid #D0D2D3;
  margin-top: 10px;
 }
 
@@ -123,8 +125,15 @@ input {
 .chall-1-current-score,
 .chall-2-current-score {
   width: 48%;
-  float: left;
   text-align: center;
+}
+
+.chall-2-current-score {
+  border-left: 2px solid #D0D2D3;
+}
+
+.chall-current-score {
+  display: flex;
 }
 
 .high,
@@ -140,14 +149,14 @@ input {
 }
 .command-buttons button {
   flex: 1;
-  margin: 10px;
+  margin: 20px 10px 0px 0px;
 }
 .column2 {
   display: inline-block;
   box-sizing: border-box;
   float: left;
-  width: 50%;
-  border-left: 2px solid #aaaaaa;
+  width: 49%;
+  height: 100%;
   background-color: #d1d2d4;
 }
 
