@@ -3,10 +3,50 @@
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
-</head>
+</head><header>
+   <h1 class="title">Number<span class="title-guesser">Guesser</span></h1>
 
-
-  <body>
+   <h2 class="subtitle">Ultimate Challenger Edition</h2>
+   <div class="line"></div>
+ </header>
+ <section class="column">
+   <article class="range">
+     <h3>Set Range</h3>
+     <label for="min">Min Range</label>
+     <input type="text" name="minrange" id="min">
+     <label for="max">Min Range</label>
+     <input type="number" name="maxrange" id="max">
+     <button class="update">Update</button>
+   </article>
+   <article class="challengers">
+     <p>The Current Range is <span class="low">1</span> to <span class="high">100</span></p>
+     <h3>Challenger 1</h3>
+     <label for="chall-1">Name</label>
+     <input type="text" name="name" id="chall-1">
+     <label for="guess-1">Guess</label>
+     <input type="number" name="guess" id="guess-1">
+     <h3>Challenger 2</h3>
+     <label for="chall-2">Name</label>
+     <input type="text" name="name" id="chall-2">
+     <label for="guess-2">Guess</label>
+     <input type="number" name="guess" id="guess-2">
+     <br>
+     <button class="submit">Submit Guess</button>
+     <button class="reset">Reset Game</button>
+     <button class="clear">Clear Game</button>
+   </article>
+   <article class="score">
+     <h3>Latest Score</h3>
+     <h4>Challenger 1 Name</h4>
+     <span class="score-label">current guess</span>
+     <h5 class="chall-1-score">0</h5>
+     <p class="chall-1-response"></p>
+     <h4>Challenger 2 Name</h4>
+     <span class="score-label">current guess</span>
+     <h5 class="chall-2-score">0</h5>
+     <p class="chall-2-response"></p>
+   </article>
+ </section>
     <div class="column2">
       <div class="scorecard"> 
           <section class="vs">
@@ -35,12 +75,12 @@
             <p id="winner-light">WINNER</p>
           </section>
           <section class="results">
-            <p>0 GUESSES</p>
-            <p>0 MINUTES</p>
+            <p id="numofguesses">0 GUESSES</p>
+            <p id="time">0 MINUTES</p>
             <button class="remove">X</button>
           </section>
       </div>
     </div>
     <script src="Number-Guesser.js" type="text/javascript"></script>
-  </body>
+  
 </html>
