@@ -1,17 +1,93 @@
 body {
-  color: #6E6E6E;
-  font-family: 'Open Sans', sans-serif;
+font-family: 'Open Sans', sans-serif;
+box-sizing: border-box;
+margin: 0px;
+padding: 0px;
+}
+
+header {
+ background-color: #404041;
+ text-align: center;
+}
+
+.title {
+ color: #DD1972;
+ font-size: 4em;
+ font-weight: 700;
+ text-transform: uppercase;
+ padding: 0;
+ margin-bottom: 0;
+
+  /*border: 1px solid red;*/
+}
+.column {
+ background-color: #F7F7F7;
+ width: 50%;
+ display: inline-block;
+ float: left;
+}
+
+.title-guesser {
+ font-weight: 300;
+}
+
+.subtitle {
+ background-color: #404041;
+ margin: auto;
+ padding-bottom: 20px;
+ text-transform: uppercase;
+ color: white;
+ font-size: 16px;
+ width: 300px;
+ z-index: 5;
+ position: relative;
+}
+
+.line {
+ width: 550px;
+ margin: auto;
+ border-top: 2px solid white;
+ z-index: 1;
+ position: relative;
+ bottom: 30px;
+}
+
+.range,
+.challengers,
+.score {
+ border: 1px solid black;
+ margin-top: 10px;
+}
+label,
+.update {
+ display: block;
+}
+
+button {
+ background-color: #6E6E6E;
+ color: #FFF;
+ border-radius: 20px;
+}
+
+.high,
+.low {
+ font-weight: bold;
+ text-decoration: underline;
 }
 
 .column2 {
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
   width: 50%;
-  height: 2000px;
+  height: 100%;
   background-color: #d1d2d4;
   margin-left: auto;
   display: flex;
   border-left: 2px solid #aaaaaa;
   flex-direction: column-reverse;
   justify-content: flex-end; 
+
 }
 
 .scorecard {
@@ -52,11 +128,11 @@ body {
 
 .results {
   display: flex;
-  justify-content: space-between;
-  margin: auto;
-  align-items: center;
-  padding: 10px; 
+  justify-content: space-between; 
+  height: 40px;
+  align-content: center;
 }
+
 
 .remove {
   color: #D0D2D3;
@@ -66,7 +142,7 @@ body {
   font-size: 1.1em;
   height: 27px;
   border: none;
+  float: right;
 }
-
 .removescorecard {
   display: none;}
