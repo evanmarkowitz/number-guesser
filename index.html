@@ -25,17 +25,25 @@
    </div>
    </article>
    <article class="challengers">
-     <p>The Current Range is <span class="low">1</span> to <span class="high">100</span></p>
-     <h3>Challenger 1</h3>
-     <label for="chall-1">Name</label>
-     <input type="text" name="name" id="chall-1">
-     <label for="guess-1">Guess</label>
-     <input type="number" name="guess" id="guess-1">
+    <p>The Current Range is <span class="low">1</span> to <span class="high">100</span></p>
+    <h3>Challenger 1</h3>
+     <form class="chall-inputs">
+      <label for="chall-1">Name</label>
+      <input type="text" name="name" id="chall-1">
+     </form>
+     <form class="chall-inputs">
+      <label for="guess-1">Guess</label>
+      <input type="number" name="guess" id="guess-1">
+     </form>
      <h3>Challenger 2</h3>
-     <label for="chall-2">Name</label>
-     <input type="text" name="name" id="chall-2">
-     <label for="guess-2">Guess</label>
-     <input type="number" name="guess" id="guess-2">
+     <form class="chall-inputs">
+      <label for="chall-2">Name</label>
+      <input type="text" name="name" id="chall-2">
+     </form>
+     <form class="chall-inputs">
+      <label for="guess-2">Guess</label>
+      <input type="number" name="guess" id="guess-2">
+     </form>
      <br>
      <div class="command-buttons">
       <button class="submit">Submit Guess</button>
@@ -45,14 +53,18 @@
    </article>
    <article class="score">
      <h3>Latest Score</h3>
-     <h4>Challenger 1 Name</h4>
-     <span class="score-label">current guess</span>
-     <h5 class="chall-1-score">0</h5>
-     <p class="chall-1-response"></p>
-     <h4>Challenger 2 Name</h4>
-     <span class="score-label">current guess</span>
-     <h5 class="chall-2-score">0</h5>
-     <p class="chall-2-response"></p>
+     <div class="chall-1-current-score">
+      <h4>Challenger 1 Name</h4>
+      <span class="score-label">current guess</span>
+      <h1 class="chall-1-score">0</h1>
+      <p class="chall-1-response"></p>
+    </div>
+    <div class="chall-2-current-score">
+      <h4>Challenger 2 Name</h4>
+      <span class="score-label">current guess</span>
+      <h1 class="chall-2-score">0</h1>
+      <p class="chall-2-response"></p>
+    </div>
    </article>
  </section>
     <div class="column2">

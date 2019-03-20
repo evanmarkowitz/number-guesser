@@ -72,10 +72,27 @@ label,
 
 button {
  background-color: #6E6E6E;
- color: #FFF;
+ color: #FFFFFF;
  border-radius: 20px;
- height: 35px;
+ height: 38px;
  text-transform: uppercase;
+ font-size: 1em;
+ font-weight: bold;
+}
+
+.chall-inputs {
+  display: inline-block;
+}
+
+#chall-1,
+#chall-2 {
+  width: 300px;
+  margin-right: 10px;
+}
+
+#guess-1,
+#guess-2 {
+  width: 200px;
 }
 
 .box1 {
@@ -83,15 +100,31 @@ button {
   justify-content: space-between;
   align-items: baseline;
 }
+input {
+  height: 30px;
+}
+
 .box1 input {
   width: 160px;
-  height: 30px;
 }
 
 .box1 button {
   align-self: flex-end;
   width: 120px;
+}
 
+.chall-1-score,
+.chall-2-score {
+  color: #DD1972;
+  font-size: 64px;
+  margin: 0;
+}
+
+.chall-1-current-score,
+.chall-2-current-score {
+  width: 48%;
+  float: left;
+  text-align: center;
 }
 
 .high,
@@ -107,7 +140,7 @@ button {
 }
 .command-buttons button {
   flex: 1;
-  margin: 15px;
+  margin: 10px;
 }
 .column2 {
   display: inline-block;
