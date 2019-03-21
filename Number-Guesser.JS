@@ -13,7 +13,15 @@ var submitButton = document.querySelector('.submit')
 var nameInput1 = document.querySelector('#chall-1')
 var nameInput2 = document.querySelector('#chall-2')
 var randomNumber;
- 
+
+
+var minInputNumber = parseInt(minInput.value);
+var maxInputNumber = parseInt(maxInput.value);
+var guessInput1 = document.querySelector('#guess-1')
+var guessInput2 = document.querySelector('#guess-2')
+var c1GuessOutput = document.querySelector('.chall-1-score')
+var c2GuessOutput = document.querySelector('.chall-2-score')
+
 
 function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
@@ -32,7 +40,18 @@ update.addEventListener('click', function(e) {
 submitButton.addEventListener('click', function(e) {
 	for (var i = 0 ; i < chall1Name.length ; i++)
 	chall1Name[i].innerText = nameInput1.value;
-	chall2Name[i].innerText = nameInput2.value;	
+		
+});
+
+submitButton.addEventListener('click', function(e) {
+  for (var i = 0 ; i < chall2Name.length ; i++)
+  chall2Name[i].innerText = nameInput2.value;
+    
+});
+
+submitButton.addEventListener('click', function(e) {
+  c1GuessOutput.innerText = guessInput1.value;
+  c2GuessOutput.innerText = guessInput2.value; 
 });
 
 
