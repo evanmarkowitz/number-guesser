@@ -12,12 +12,19 @@ var chall2Name = document.querySelectorAll('.challenger-2-name')
 var submitButton = document.querySelector('.submit')
 var nameInput1 = document.querySelector('#chall-1')
 var nameInput2 = document.querySelector('#chall-2')
+var minInputNumber = parseInt(minInput.value);
+var maxInputNumber = parseInt(maxInput.value);
 
 
-var minInputNumber = parseInt(minInput);
 
+function getRandomIntInclusive(minInput, maxInput) {
+  minInput = Math.ceil(parseInt(minInput.value));
+  maxInput = Math.floor(parseInt(maxInput.value));
+  return Math.floor(Math.random() * (maxInput - minInput + 1)) + maxInput; 
+}
+console.log(getRandomIntInclusive(min,max));
 
-
+//Updates Current Range on DOM
 update.addEventListener('click', function(e) {
 	lowOutput.innerText= minInput.value;
 	highOutput.innerText= maxInput.value;
@@ -25,36 +32,15 @@ update.addEventListener('click', function(e) {
 
 });
 
-
+//Updates Challenger 1 Name on DOM
 submitButton.addEventListener('click', function(e) {
 	for (var i = 0 ; i < chall1Name.length ; i++)
 	chall1Name[i].innerText = nameInput1.value;
-	
-});
-
-submitButton.addEventListener('click', function(e) {
-	for (var i = 0 ; i < chall2Name.length ; i++)
 	chall2Name[i].innerText = nameInput2.value;	
 });
 
-/*
-function getRandomIntInclusive(low, high) {
-  min = Math.ceil(low);
-  max = Math.floor(high);
-  return Math.floor(Math.random() * (high - low + 1)) + high; 
-}
-*/
 
-
-
-
-
-
-
-
-
-
-
+//Deletes All Scorecards, just want it to delete 1
 
 remove.addEventListener('click', function(event) {
 	for (var i = 0 ; i < scorecard.length ; i++)
