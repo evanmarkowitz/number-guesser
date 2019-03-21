@@ -1,8 +1,8 @@
 body {
 font-family: 'Open Sans', sans-serif;
 box-sizing: border-box;
-margin: 0px;
-padding: 0px;
+/*margin: 0px;
+padding: 0px;*/
 }
 
 header {
@@ -58,6 +58,11 @@ header {
  border: 1px solid black;
  margin-top: 10px;
 }
+
+.box1 {
+  display
+}
+
 label,
 .update {
  display: block;
