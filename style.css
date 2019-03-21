@@ -1,13 +1,25 @@
 body {
 font-family: 'Open Sans', sans-serif;
 box-sizing: border-box;
+<<<<<<< HEAD
 /*margin: 0px;
 padding: 0px;*/
+=======
+margin: 0px;
+padding: 0px;
+background: #d1d2d4;
+>>>>>>> ee3f81fb903f710c05b2135cea13f07ce29c5c37
 }
 
 header {
  background-color: #404041;
  text-align: center;
+}
+
+article {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 15px;
 }
 
 .title {
@@ -25,6 +37,7 @@ header {
  width: 50%;
  display: inline-block;
  float: left;
+ border-right: 2px solid #aaaaaa;
 }
 
 .title-guesser {
@@ -38,7 +51,7 @@ header {
  text-transform: uppercase;
  color: white;
  font-size: 16px;
- width: 300px;
+ width: 280px;
  z-index: 5;
  position: relative;
 }
@@ -55,14 +68,17 @@ header {
 .range,
 .challengers,
 .score {
- border: 1px solid black;
+ border: 1px solid #D0D2D3;
  margin-top: 10px;
 }
 
+<<<<<<< HEAD
 .box1 {
   display
 }
 
+=======
+>>>>>>> ee3f81fb903f710c05b2135cea13f07ce29c5c37
 label,
 .update {
  display: block;
@@ -70,8 +86,66 @@ label,
 
 button {
  background-color: #6E6E6E;
- color: #FFF;
+ color: #FFFFFF;
  border-radius: 20px;
+ height: 38px;
+ text-transform: uppercase;
+ font-size: 1em;
+ font-weight: bold;
+}
+
+.chall-inputs {
+  display: inline-block;
+}
+
+#chall-1,
+#chall-2 {
+  width: 300px;
+  margin-right: 10px;
+}
+
+#guess-1,
+#guess-2 {
+  width: 200px;
+}
+
+.box1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+input {
+  height: 30px;
+}
+
+.box1 input {
+  width: 160px;
+}
+
+.box1 button {
+  align-self: flex-end;
+  width: 120px;
+}
+
+.chall-1-score,
+.chall-2-score {
+  color: #DD1972;
+  font-size: 64px;
+  margin: 0;
+}
+
+.chall-1-current-score,
+.chall-2-current-score {
+  width: 48%;
+  text-align: center;
+}
+
+.chall-2-current-score {
+  border-left: 2px solid #D0D2D3;
+}
+
+.chall-current-score {
+  display: flex;
 }
 
 .high,
@@ -80,19 +154,22 @@ button {
  text-decoration: underline;
 }
 
+.command-buttons {
+  display: flex;
+  justify-content: space-between;
+
+}
+.command-buttons button {
+  flex: 1;
+  margin: 20px 10px 0px 0px;
+}
 .column2 {
   display: inline-block;
   box-sizing: border-box;
   float: left;
-  width: 50%;
+  width: 49%;
   height: 100%;
   background-color: #d1d2d4;
-  margin-left: auto;
-  display: flex;
-  border-left: 2px solid #aaaaaa;
-  flex-direction: column-reverse;
-  justify-content: flex-end; 
-
 }
 
 .scorecard {
@@ -134,8 +211,9 @@ button {
 .results {
   display: flex;
   justify-content: space-between; 
-  height: 40px;
-  align-content: center;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 
