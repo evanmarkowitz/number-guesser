@@ -12,47 +12,69 @@
  <section class="column">
    <article class="range">
      <h3>Set Range</h3>
+   <div class=box1>
+      <form>
      <label for="min">Min Range</label>
      <input type="text" name="minrange" id="min">
-     <label for="max">Min Range</label>
-     <input type="number" name="maxrange" id="max">
+      </form>
+      <form>
+     <label for="max">Max Range</label>
+     <input type="text" name="maxrange" id="max">
+   </form>
      <button class="update">Update</button>
+   </div>
    </article>
    <article class="challengers">
-     <p>The Current Range is <span class="low">1</span> to <span class="high">100</span></p>
-     <h3>Challenger 1</h3>
-     <label for="chall-1">Name</label>
-     <input type="text" name="name" id="chall-1">
-     <label for="guess-1">Guess</label>
-     <input type="number" name="guess" id="guess-1">
-     <h3>Challenger 2</h3>
-     <label for="chall-2">Name</label>
-     <input type="text" name="name" id="chall-2">
-     <label for="guess-2">Guess</label>
-     <input type="number" name="guess" id="guess-2">
+    <p>The Current Range is <span class="low">1</span> to <span class="high">100</span></p>
+    <h3 class="challenger-1-name">Challenger 1</h3>
+     <form class="chall-inputs">
+      <label for="chall-1">Name</label>
+      <input type="text" name="name" id="chall-1">
+     </form>
+     <form class="chall-inputs">
+      <label for="guess-1">Guess</label>
+      <input type="text" name="guess" id="guess-1">
+     </form>
+     <h3 class="challenger-2-name">Challenger 2</h3>
+     <form class="chall-inputs">
+      <label for="chall-2">Name</label>
+      <input type="text" name="name" id="chall-2">
+     </form>
+     <form class="chall-inputs">
+      <label for="guess-2">Guess</label>
+      <input type="text" name="guess" id="guess-2">
+     </form>
      <br>
-     <button class="submit">Submit Guess</button>
-     <button class="reset">Reset Game</button>
-     <button class="clear">Clear Game</button>
+     <div class="command-buttons">
+      <button class="submit">Submit Guess</button>
+      <button class="reset">Reset Game</button>
+      <button class="clear">Clear Game</button>
+    </div>
    </article>
    <article class="score">
      <h3>Latest Score</h3>
-     <h4>Challenger 1 Name</h4>
-     <span class="score-label">current guess</span>
-     <h5 class="chall-1-score">0</h5>
-     <p class="chall-1-response"></p>
-     <h4>Challenger 2 Name</h4>
-     <span class="score-label">current guess</span>
-     <h5 class="chall-2-score">0</h5>
-     <p class="chall-2-response"></p>
+     <div class="chall-current-score">
+     <div class="chall-1-current-score">
+      <h4 class="challenger-1-name">Challenger 1 Name</h4>
+      <span class="score-label">current guess</span>
+      <h1 class="chall-1-score">0</h1>
+      <p class="chall-1-response"></p>
+    </div>
+    <div class="chall-2-current-score">
+      <h4 class="challenger-2-name">Challenger 2 Name</h4>
+      <span class="score-label">current guess</span>
+      <h1 class="chall-2-score">0</h1>
+      <p class="chall-2-response"></p>
+    </div>
+  </div>
    </article>
  </section>
     <div class="column2">
       <div class="scorecard"> 
           <section class="vs">
-            <h3>CHALLENGER 1 NAME</h3>
+            <h3 class="challenger-1-name">CHALLENGER 1 NAME</h3>
             <p>vs</p>
-            <h3>CHALLENGER 2 NAME</h3>
+            <h3 class="challenger-2-name">CHALLENGER 2 NAME</h3>
           </section>
           <section class="winner">
             <h1>CHALLENGER 1 NAME</h1>

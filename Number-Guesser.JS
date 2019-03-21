@@ -2,10 +2,57 @@ var scorecard = document.querySelectorAll('.scorecard');
 var remove = document.querySelector('.remove');
 var chall_1= document.querySelector('#chall-1');
 var chall_2= document.querySelector('#chall-2');
-var min = document.querySelector('#min');
-var max = document.querySelector('#max');
-var low = document.querySelector('.low')
+var minInput = document.querySelector('#min');
+var maxInput = document.querySelector('#max');
+var lowOutput = document.querySelector('.low')
+var highOutput = document.querySelector('.high')
 var update = document.querySelector('.update');
+var chall1Name = document.querySelectorAll('.challenger-1-name')
+var chall2Name = document.querySelectorAll('.challenger-2-name')
+var submitButton = document.querySelector('.submit')
+var nameInput1 = document.querySelector('#chall-1')
+var nameInput2 = document.querySelector('#chall-2')
+
+
+var minInputNumber = parseInt(minInput);
+
+
+
+update.addEventListener('click', function(e) {
+	lowOutput.innerText= minInput.value;
+	highOutput.innerText= maxInput.value;
+	var minInputNumber = parseInt(minInput);
+
+});
+
+
+submitButton.addEventListener('click', function(e) {
+	for (var i = 0 ; i < chall1Name.length ; i++)
+	chall1Name[i].innerText = nameInput1.value;
+	
+});
+
+submitButton.addEventListener('click', function(e) {
+	for (var i = 0 ; i < chall2Name.length ; i++)
+	chall2Name[i].innerText = nameInput2.value;	
+});
+
+/*
+function getRandomIntInclusive(low, high) {
+  min = Math.ceil(low);
+  max = Math.floor(high);
+  return Math.floor(Math.random() * (high - low + 1)) + high; 
+}
+*/
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,10 +61,3 @@ remove.addEventListener('click', function(event) {
 	{
 	scorecard[i].classList.add('removescorecard');}
 });
-
-update.addEventListener('click', function(event) {
-	min.value = low.innerText; 
-});
-
-
-
