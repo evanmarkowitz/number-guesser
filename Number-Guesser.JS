@@ -12,24 +12,20 @@ var chall2Name = document.querySelectorAll('.challenger-2-name')
 var submitButton = document.querySelector('.submit')
 var nameInput1 = document.querySelector('#chall-1')
 var nameInput2 = document.querySelector('#chall-2')
-var minInputNumber = parseInt(minInput.value);
-var maxInputNumber = parseInt(maxInput.value);
+var randomNumber;
+ 
 
-
-
-function getRandomIntInclusive(minInput, maxInput) {
-  minInput = Math.ceil(parseInt(minInput.value));
-  maxInput = Math.floor(parseInt(maxInput.value));
-  return Math.floor(Math.random() * (maxInput - minInput + 1)) + maxInput; 
-}
-console.log(getRandomIntInclusive(min,max));
+function getRandomInt(minValue, maxValue) {
+  	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
 
 //Updates Current Range on DOM
 update.addEventListener('click', function(e) {
 	lowOutput.innerText= minInput.value;
 	highOutput.innerText= maxInput.value;
-	var minInputNumber = parseInt(minInput);
-
+	var maxValue = parseInt(maxInput.value);
+	var minValue = parseInt(minInput.value);
+	getRandomInt(minValue, maxValue);
+	console.log(randomNumber)
 });
 
 //Updates Challenger 1 Name on DOM
@@ -47,3 +43,12 @@ remove.addEventListener('click', function(event) {
 	{
 	scorecard[i].classList.add('removescorecard');}
 });
+
+
+
+
+
+
+
+
+
