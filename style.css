@@ -1,14 +1,9 @@
 body {
 font-family: 'Open Sans', sans-serif;
 box-sizing: border-box;
-<<<<<<< HEAD
-/*margin: 0px;
-padding: 0px;*/
-=======
 margin: 0px;
 padding: 0px;
 background: #d1d2d4;
->>>>>>> ee3f81fb903f710c05b2135cea13f07ce29c5c37
 }
 
 header {
@@ -72,13 +67,6 @@ article {
  margin-top: 10px;
 }
 
-<<<<<<< HEAD
-.box1 {
-  display
-}
-
-=======
->>>>>>> ee3f81fb903f710c05b2135cea13f07ce29c5c37
 label,
 .update {
  display: block;
@@ -92,6 +80,10 @@ button {
  text-transform: uppercase;
  font-size: 1em;
  font-weight: bold;
+}
+
+button:hover {
+  background-color: #DD1972;
 }
 
 .chall-inputs {
@@ -114,6 +106,7 @@ button {
   justify-content: space-between;
   align-items: baseline;
 }
+
 input {
   height: 30px;
 }

@@ -44,7 +44,7 @@ submitButton.addEventListener('click', function(e) {
 	chall1Name[i].innerText = nameInput1.value;
 		
 });
-
+//Updates Challenger 2 Name on Dom
 submitButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < chall2Name.length ; i++)
   chall2Name[i].innerText = nameInput2.value;
@@ -76,6 +76,11 @@ submitButton.addEventListener('click', function(e) {
 } 
 
 });
+
+// Color change when button click
+document.addEventListener("click", function() {
+  
+}
 
 
 //Deletes All Scorecards, just want it to delete 1
