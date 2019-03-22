@@ -86,6 +86,11 @@ button:hover {
   background-color: #DD1972;
 }
 
+button:focus {
+  background-color: #D0D2D3;
+  outline: 0;
+}
+
 .chall-inputs {
   display: inline-block;
 }
