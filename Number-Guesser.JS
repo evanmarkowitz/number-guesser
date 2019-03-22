@@ -78,9 +78,10 @@ submitButton.addEventListener('click', function(e) {
 });
 
 // Color change when button click
-document.addEventListener("click", function() {
-  
-}
+// document.getElement('button').addEventListener("click", fchangeColor); {
+//   this.style.backgroundColor = #D0D2D3;
+//   return false;
+// }
 
 
 //Deletes All Scorecards, just want it to delete 1
