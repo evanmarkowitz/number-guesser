@@ -25,6 +25,8 @@ var chall2response = document.querySelector('.chall-2-response')
 var resetButton = document.querySelector('.resetbutton')
 var challInputs = document.querySelectorAll('.chall-inputs')
 
+var guessCount; 
+
 function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
 
@@ -56,6 +58,7 @@ submitButton.addEventListener('click', function(e) {
   c2GuessOutput.innerText = guessInput2.value;
   guessInputValue1 = parseInt(guessInput1.value)
   guessInputValue2 = parseInt(guessInput2.value)
+  guessCount = guessCount + 2
   if (guessInputValue1 && guessInputValue2 === randomNumber)
     {chall1response.innerText = "Its a tie!"}
   else if (guessInputValue1 === randomNumber) {
@@ -77,10 +80,14 @@ submitButton.addEventListener('click', function(e) {
 
 });
 
-//reset Button
+//reset Button Clears Names + Guesses + Creates New Random Number
 resetButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < challInputs.length ; i++)
     challInputs[i].reset();
+  var maxValue = parseInt(maxInput.value);
+  var minValue = parseInt(minInput.value);
+  getRandomInt(minValue, maxValue);
+  console.log(randomNumber)
 });
 
 
