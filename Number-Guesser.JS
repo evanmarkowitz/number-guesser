@@ -58,7 +58,10 @@ submitButton.addEventListener('click', function(e) {
   c2GuessOutput.innerText = guessInput2.value;
   guessInputValue1 = parseInt(guessInput1.value)
   guessInputValue2 = parseInt(guessInput2.value)
-  guessCount = guessCount + 2
+
+  });
+//Winner 
+submitButton.addEventListener('click', function(e) {
   if (guessInputValue1 && guessInputValue2 === randomNumber)
     {chall1response.innerText = "Its a tie!"}
   else if (guessInputValue1 === randomNumber) {
@@ -68,10 +71,10 @@ submitButton.addEventListener('click', function(e) {
 } else {
   chall1response.innerText = "that's too low" 
 }  
-  if (guessInputValue1 && guessInputValue2 === randomNumber)
+  /*if (guessInputValue1 && guessInputValue2 === randomNumber)
     {chall2response.innerText = "Its a tie!"}
-  else if (guessInputValue2 === randomNumber) {
-  chall2response.innerText = "Boom!"
+  else */ if (guessInputValue2 === randomNumber) {
+  chall2response.innerText = "Boom!";
 } else if (guessInputValue2 > randomNumber){
   chall2response.innerText = "that's too high" 
 } else {
