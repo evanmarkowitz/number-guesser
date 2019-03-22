@@ -14,7 +14,6 @@ var nameInput1 = document.querySelector('#chall-1')
 var nameInput2 = document.querySelector('#chall-2')
 var randomNumber;
 
-
 var minInputNumber = parseInt(minInput.value);
 var maxInputNumber = parseInt(maxInput.value);
 var guessInput1 = document.querySelector('#guess-1')
@@ -23,7 +22,8 @@ var c1GuessOutput = document.querySelector('.chall-1-score')
 var c2GuessOutput = document.querySelector('.chall-2-score')
 var chall1response = document.querySelector('.chall-1-response')
 var chall2response = document.querySelector('.chall-2-response')
-
+var resetButton = document.querySelector('.resetbutton')
+var challInputs = document.querySelectorAll('.chall-inputs')
 
 function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
@@ -59,7 +59,7 @@ submitButton.addEventListener('click', function(e) {
   if (guessInputValue1 && guessInputValue2 === randomNumber)
     {chall1response.innerText = "Its a tie!"}
   else if (guessInputValue1 === randomNumber) {
-  chall1response.innerText = "You Won!"
+  chall1response.innerText = "Boom!"
 } else if (guessInputValue1 > randomNumber){
   chall1response.innerText = "that's too high" 
 } else {
@@ -68,13 +68,19 @@ submitButton.addEventListener('click', function(e) {
   if (guessInputValue1 && guessInputValue2 === randomNumber)
     {chall2response.innerText = "Its a tie!"}
   else if (guessInputValue2 === randomNumber) {
-  chall2response.innerText = "You Won!"
+  chall2response.innerText = "Boom!"
 } else if (guessInputValue2 > randomNumber){
   chall2response.innerText = "that's too high" 
 } else {
   chall2response.innerText = "that's too low" 
 } 
 
+});
+
+//reset Button
+resetButton.addEventListener('click', function(e) {
+  for (var i = 0 ; i < challInputs.length ; i++)
+    challInputs[i].reset();
 });
 
 
