@@ -17,6 +17,10 @@ article {
   padding: 15px;
 }
 
+input {
+  width: 100%;
+}
+
 .title {
  color: #DD1972;
  font-size: 4em;
@@ -92,25 +96,41 @@ button:disabled {
   background-color: #D0D2D3;
 }
 
-.chall-inputs {
-  display: inline-block;
+.c1-inputs,
+.c2-inputs {
+  display: flex;
+  flex-direction: row;
 }
 
-#chall-1,
-#chall-2 {
-  width: 300px;
+.name-input {
+  flex: 2;
+}
+
+.guess-input {
+  flex: 1;
+}
+
+.input-box {
+  width: 100%;
   margin-right: 10px;
 }
 
-#guess-1,
-#guess-2 {
-  width: 200px;
-}
-
 .box1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+display: flex;
+align-content: flex-end;
+justify-content: space-between;
+
+}
+.min-range-input,
+.max-range-input,
+.range-button {
+  flex: 1;
+  margin: 10px;
+  align-self: flex-end;
+}
+.challenger-1-2,
+.guess-1-2 {
+
 }
 
 input {
@@ -118,12 +138,14 @@ input {
 }
 
 .box1 input {
-  width: 160px;
+  flex: 1;
+  width: 100%;
 }
 
 .box1 button {
-  align-self: flex-end;
-  width: 120px;
+  /*align-self: flex-end;*/
+  flex: 3;
+  width: 100%;
 }
 
 .chall-1-score,
@@ -227,3 +249,11 @@ input {
 }
 .removescorecard {
   display: none;}
+
+@media(max-width: 770px) {
+
+/*.box1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}*/
