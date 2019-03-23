@@ -7,8 +7,8 @@ background: #d1d2d4;
 }
 
 header {
- background-color: #404041;
- text-align: center;
+  background-color: #404041;
+  text-align: center;
 }
 
 article {
@@ -22,11 +22,13 @@ input {
 }
 
 .title {
+  background-color: #404041;
  color: #DD1972;
  font-size: 4em;
  font-weight: 700;
  text-transform: uppercase;
- padding: 0;
+ margin-top: 0;
+ padding: 10px;
  margin-bottom: 0;
 
   /*border: 1px solid red;*/
@@ -48,15 +50,16 @@ input {
  margin: auto;
  padding-bottom: 20px;
  text-transform: uppercase;
+ font-weight: 300;
  color: white;
- font-size: 16px;
+ font-size: 18px;
  width: 280px;
  z-index: 5;
  position: relative;
 }
 
 .line {
- width: 550px;
+ width: 555px;
  margin: auto;
  border-top: 2px solid white;
  z-index: 1;
@@ -119,18 +122,14 @@ button:disabled {
 display: flex;
 align-content: flex-end;
 justify-content: space-between;
-
 }
+
 .min-range-input,
 .max-range-input,
 .range-button {
   flex: 1;
   margin: 10px;
   align-self: flex-end;
-}
-.challenger-1-2,
-.guess-1-2 {
-
 }
 
 input {
@@ -179,6 +178,7 @@ input {
   display: flex;
   justify-content: space-between;
 }
+
 .command-buttons button {
   flex: 1;
   margin: 20px 10px 0px 0px;
@@ -252,8 +252,70 @@ input {
 
 @media(max-width: 770px) {
 
-/*.box1 {
+.column {
+  width: 65%;
+}
+
+@media(max-width: 600px) {
+
+.title {
+  font-size: 2em;
+}
+.subtitle {
+  font-size: 12px;
+  width: 190px;
+}
+.line {
+  width: 280px;
+}
+
+.box1 {
+display: block;
+}
+
+.c1-inputs,
+.c2-inputs {
+  display: block;
+}
+
+button {
+ height: 26px;
+ font-size: x-small;
+ font-weight: 300;
+ margin: ;
+}
+
+.command-buttons button{
+  margin: -3px 10px 0px -2px;
+}
+
+.chall-current-score {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}*/
+  flex-direction: column;
+  align-items: center;
+}
+
+.chall-1-current-score,
+.chall-2-current-score {
+  text-align: center;
+}
+
+.chall-1-current-score {
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid #D0D2D3;
+}
+
+.chall-2-current-score {
+  border-left: 0px;
+}
+
+.score h3 {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+
+
+
+
