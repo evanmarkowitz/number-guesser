@@ -12,20 +12,26 @@ var chall2Name = document.querySelectorAll('.challenger-2-name')
 var submitButton = document.querySelector('.submit')
 var nameInput1 = document.querySelector('#chall-1')
 var nameInput2 = document.querySelector('#chall-2')
+var form1 = document.querySelector("#form-1")
+var form2 = document.querySelector("#form-2")
 var randomNumber;
 
 var minInputNumber = parseInt(minInput.value);
 var maxInputNumber = parseInt(maxInput.value);
-var guessInput1 = document.querySelector('#guess-1')
-var guessInput2 = document.querySelector('#guess-2')
-var c1GuessOutput = document.querySelector('.chall-1-score')
-var c2GuessOutput = document.querySelector('.chall-2-score')
-var chall1response = document.querySelector('.chall-1-response')
-var chall2response = document.querySelector('.chall-2-response')
-var resetButton = document.querySelector('.resetbutton')
-var challInputs = document.querySelectorAll('.chall-inputs')
+var guessInput1 = document.querySelector('#guess-1');
+var guessInput2 = document.querySelector('#guess-2');
+var c1GuessOutput = document.querySelector('.chall-1-score');
+var c2GuessOutput = document.querySelector('.chall-2-score');
+var chall1response = document.querySelector('.chall-1-response');
+var chall2response = document.querySelector('.chall-2-response');
+var resetButton = document.querySelector('.reset-button');
+var challInputs = document.querySelectorAll('.chall-inputs');
+var clearButton = document.querySelector('.clear');
+var scorecard = document.querySelector(".scorecard");
+var wrapper = document.querySelector(".wrapper");
 
 var guessCount; 
+
 
 function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
@@ -63,7 +69,7 @@ submitButton.addEventListener('click', function(e) {
 //Winner 
 submitButton.addEventListener('click', function(e) {
   if (guessInputValue1 === randomNumber) {
-  chall1response.innerText = "Boom!"
+  chall1response.innerText = "Boom!";
 } else if (guessInputValue1 > randomNumber){
   chall1response.innerText = "that's too high" 
 } else {
@@ -75,12 +81,12 @@ submitButton.addEventListener('click', function(e) {
   chall2response.innerText = "that's too high" 
 } else {
   chall2response.innerText = "that's too low" 
-} 
-
-});
+}});
 
 
-//reset Button Clears Names + Guesses + Creates New Random Number
+
+
+//Reset Button Clears Names + Guesses + Creates New Random Number
 resetButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < challInputs.length ; i++)
     challInputs[i].reset();
@@ -99,9 +105,88 @@ resetButton.addEventListener('click', function(e) {
 
 
 //Deletes All Scorecards, just want it to delete 1
+//Clear + Reset Button Start off disabled
 
+clearButton.disabled = true;
+resetButton.disabled = true;
 
+// Function to disable Clear and Reset Buttons until input name is typed in
+function disableClearResetButton(inputName) {
+  if(inputName.value.length < 0){
+ 
+  clearButton.disabled = true;
+  resetButton.disabled = true;
+} else {
+  resetButton.disabled = false;
+  clearButton.disabled = false;
+}};
+//Function to disable Clear buttons 
+function disableClearButton(inputName) {
+if(inputName.value.length< 0 ){
+  resetButton.disabled = true;
+} else {
+  resetButton.disabled = false;
+}}
+//Clear and Reset get disabled up keystroke on Name Inputs 
+nameInput1.addEventListener("keyup",function(){
+  disableClearButton(nameInput1);
+});
+nameInput2.addEventListener("keyup",function(){
+  disableClearButton(nameInput2);
+});
+//Clear gets disabled upon keystroke on Guess Inputs
+guessInput1.addEventListener("keyup",function(){
+  disableClearResetButton(guessInput1);
+});
+guessInput2.addEventListener("keyup",function(){
+  disableClearResetButton(guessInput2);
+});
 
+//Clear and Reset gets disabled upon Reset Button
+resetButton.addEventListener("click", function() {
+  clearButton.disabled = true;
+  resetButton.disabled = true;
+})
+
+//Clear gets disabled upon clear Button
+clearButton.addEventListener("click", function() {
+  clearButton.disabled = true;
+})
+
+clearButton.addEventListener("click", function() {
+  form1.reset();
+  form2.reset();
+})
+
+//Boom Card
+//Winner 
+submitButton.addEventListener('click', function(e) {
+  if (guessInputValue1 === randomNumber) {
+  wrapper.innerHTML = "<p>Hello</p>"
+
+        /*<article class="scorecard"> 
+            <section class="vs">
+            <h3>chall1Name</h3>
+            <p>vs</p>
+            <h3>chall2Name</h3>
+          </section>
+          <section class="winner">
+            <h1>chall1Name</h1>
+            <p id="winner-light">WINNER</p>
+          </section>
+          <section class="results">
+            <p>0 GUESSES</p>
+            <p>0 MINUTES</p>
+            <button class="remove">X</button>
+          </section>
+          </article> */
+} 
+  if (guessInputValue2 === randomNumber) {
+
+}  else {
+  
+}});
+    
 
 
 
