@@ -73,22 +73,23 @@ label,
 }
 
 button {
- background-color: #6E6E6E;
  color: #FFFFFF;
  border-radius: 20px;
  height: 38px;
  text-transform: uppercase;
  font-size: 1em;
  font-weight: bold;
+ background-color: #6E6E6E;
 }
 
 button:hover {
   background-color: #DD1972;
 }
 
-button:focus {
+button:disabled {
   background-color: #D0D2D3;
   outline: 0;
+  background-color: #D0D2D3;
 }
 
 .chall-inputs {
@@ -155,7 +156,6 @@ input {
 .command-buttons {
   display: flex;
   justify-content: space-between;
-
 }
 .command-buttons button {
   flex: 1;
