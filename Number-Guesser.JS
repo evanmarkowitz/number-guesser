@@ -22,10 +22,12 @@ var c1GuessOutput = document.querySelector('.chall-1-score')
 var c2GuessOutput = document.querySelector('.chall-2-score')
 var chall1response = document.querySelector('.chall-1-response')
 var chall2response = document.querySelector('.chall-2-response')
-var resetButton = document.querySelector('.resetbutton')
+var resetButton = document.querySelector('.reset-button')
 var challInputs = document.querySelectorAll('.chall-inputs')
+var clearButton = document.querySelector('.clear')
 
 var guessCount; 
+
 
 function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
@@ -63,7 +65,7 @@ submitButton.addEventListener('click', function(e) {
 //Winner 
 submitButton.addEventListener('click', function(e) {
   if (guessInputValue1 === randomNumber) {
-  chall1response.innerText = "Boom!"
+  chall1response.innerText = "Boom!";
 } else if (guessInputValue1 > randomNumber){
   chall1response.innerText = "that's too high" 
 } else {
@@ -75,12 +77,12 @@ submitButton.addEventListener('click', function(e) {
   chall2response.innerText = "that's too high" 
 } else {
   chall2response.innerText = "that's too low" 
-} 
-
-});
+}});
 
 
-//reset Button Clears Names + Guesses + Creates New Random Number
+
+
+//Reset Button Clears Names + Guesses + Creates New Random Number
 resetButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < challInputs.length ; i++)
     challInputs[i].reset();
@@ -99,10 +101,53 @@ resetButton.addEventListener('click', function(e) {
 
 
 //Deletes All Scorecards, just want it to delete 1
+//Clear + Reset Button Start off disabled
 
+clearButton.disabled = true;
+resetButton.disabled = true;
 
+// Function to disable Clear and Reset Buttons until input name is typed in
+function disableClearResetButton(inputName) {
+  if(inputName.value.length < 0){
+ 
+  clearButton.disabled = true;
+  resetButton.disabled = true;
+} else {
+  resetButton.disabled = false;
+  clearButton.disabled = false;
+}};
+//Function to disable Clear buttons 
+function disableClearButton(inputName) {
+if(inputName.value.length< 0 ){
+  resetButton.disabled = true;
+} else {
+  resetButton.disabled = false;
+}}
+//Clear and Reset get disabled up keystroke on Name Inputs 
+nameInput1.addEventListener("keyup",function(){
+  disableClearButton(nameInput1);
+});
+nameInput2.addEventListener("keyup",function(){
+  disableClearButton(nameInput2);
+});
+//Clear gets disabled upon keystroke on Guess Inputs
+guessInput1.addEventListener("keyup",function(){
+  disableClearResetButton(guessInput1);
+});
+guessInput2.addEventListener("keyup",function(){
+  disableClearResetButton(guessInput2);
+});
 
+//Clear and Reset gets disabled upon Reset Button
+resetButton.addEventListener("click", function() {
+  clearButton.disabled = true;
+  resetButton.disabled = true;
+})
 
+//Clear gets disabled upon clear Button
+clearButton.addEventListener("click", function() {
+  clearButton.disabled = true;
+})
 
 
 
