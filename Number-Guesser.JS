@@ -29,8 +29,9 @@ var challInputs = document.querySelectorAll('.chall-inputs');
 var clearButton = document.querySelector('.clear');
 var scorecard = document.querySelector(".scorecard");
 var wrapper = document.querySelector(".wrapper");
+var numberOfGuesses = document.querySelector(".guess-count")
+var guessCount = 0;
 
-var guessCount; 
 
 
 function getRandomInt(minValue, maxValue) {
@@ -102,11 +103,6 @@ resetButton.addEventListener('click', function(e) {
 //   return false;
 // }
 
-
-
-//Deletes All Scorecards, just want it to delete 1
-//Clear + Reset Button Start off disabled
-
 clearButton.disabled = true;
 resetButton.disabled = true;
 
@@ -160,35 +156,45 @@ clearButton.addEventListener("click", function() {
 
 //Boom Card
 //Winner 
+
+
 submitButton.addEventListener('click', function(e) {
   if (guessInputValue1 === randomNumber) {
-  wrapper.innerHTML = "<p>Hello</p>"
-
-        /*<article class="scorecard"> 
-            <section class="vs">
-            <h3>chall1Name</h3>
-            <p>vs</p>
-            <h3>chall2Name</h3>
-          </section>
-          <section class="winner">
-            <h1>chall1Name</h1>
-            <p id="winner-light">WINNER</p>
-          </section>
-          <section class="results">
-            <p>0 GUESSES</p>
-            <p>0 MINUTES</p>
-            <button class="remove">X</button>
-          </section>
-          </article> */
-} 
+  wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
+          <section class="vs">\
+            <h3 id="scorename">name</h3>\
+            <p>vs</p>\
+            <h3 class="challenger-2-name">chall2Name</h3>\
+          </section>\
+          <section class="winner">\
+            <h1>chall1Name</h1>\
+            <p id="winner-light">WINNER</p>\
+          </section>\
+          <section class="results">\
+            <p class="guess-count">0 GUESSES</p>\
+            <p>0 MINUTES</p>\
+            <button class="remove">X</button>\
+          </section>\
+          </article>\
+');
+}
   if (guessInputValue2 === randomNumber) {
 
 }  else {
   
 }});
-    
+
+guessInput1.addEventListener('keyup', function(e) {
+  if (parseInt(guessInput1.value) < minInput.value) {
+  submitButton.disabled = true;
+  }else {
+
+  }
+});
 
 
+
+          
 
 
 
