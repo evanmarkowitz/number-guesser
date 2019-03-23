@@ -62,18 +62,14 @@ submitButton.addEventListener('click', function(e) {
   });
 //Winner 
 submitButton.addEventListener('click', function(e) {
-  if (guessInputValue1 && guessInputValue2 === randomNumber)
-    {chall1response.innerText = "Its a tie!"}
-  else if (guessInputValue1 === randomNumber) {
+  if (guessInputValue1 === randomNumber) {
   chall1response.innerText = "Boom!"
 } else if (guessInputValue1 > randomNumber){
   chall1response.innerText = "that's too high" 
 } else {
   chall1response.innerText = "that's too low" 
 }  
-  /*if (guessInputValue1 && guessInputValue2 === randomNumber)
-    {chall2response.innerText = "Its a tie!"}
-  else */ if (guessInputValue2 === randomNumber) {
+  if (guessInputValue2 === randomNumber) {
   chall2response.innerText = "Boom!";
 } else if (guessInputValue2 > randomNumber){
   chall2response.innerText = "that's too high" 
