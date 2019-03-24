@@ -35,6 +35,7 @@ var guess1error = document.querySelector(".guess-1-error")
 var guess2error = document.querySelector(".guess-2-error")
 var minRangeError = document.querySelector(".min-range-error")
 var maxRangeError = document.querySelector(".max-range-error")
+var updateError = document.querySelector(".update-error")
 var guessCount = 0;
 
 
@@ -43,14 +44,19 @@ function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
 
 //Updates Current Range on DOM
+
 update.addEventListener('click', function(e) {
+  if (maxInput.value.length < 1 || minInput.value.length < 1) {
+  updateError.innerText = "Please put Numbers into the Min and Max Range";
+  } else {
+  updateError.innerText = "";  
 	lowOutput.innerText= minInput.value;
 	highOutput.innerText= maxInput.value;
 	var maxValue = parseInt(maxInput.value);
 	var minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
 	console.log(randomNumber)
-});
+}});
 
 //Updates Challenger 1 Name on DOM
 submitButton.addEventListener('click', function(e) {
