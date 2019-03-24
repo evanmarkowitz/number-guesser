@@ -126,7 +126,10 @@ justify-content: space-between;
 .range-button {
   flex: 1;
   margin: 10px;
-  align-self: flex-end;
+  align-self: flex-start;
+}
+.range-button{
+  margin: 31px;
 }
 .challenger-1-2,
 .guess-1-2 {
@@ -183,6 +186,10 @@ input {
   flex: 1;
   margin: 20px 10px 0px 0px;
 }
+.error-message p{
+  color: red;
+}
+
 .column2 {
   display: inline-block;
   box-sizing: border-box;
