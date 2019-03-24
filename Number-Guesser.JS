@@ -30,6 +30,11 @@ var clearButton = document.querySelector('.clear');
 var scorecard = document.querySelector(".scorecard");
 var wrapper = document.querySelector(".wrapper");
 var numberOfGuesses = document.querySelector(".guess-count")
+var minRangeError = document.querySelector(".min-range-error");
+var guess1error = document.querySelector(".guess-1-error")
+var guess2error = document.querySelector(".guess-2-error")
+var minRangeError = document.querySelector(".min-range-error")
+var maxRangeError = document.querySelector(".max-range-error")
 var guessCount = 0;
 
 
@@ -106,9 +111,10 @@ resetButton.addEventListener('click', function(e) {
 clearButton.disabled = true;
 resetButton.disabled = true;
 
+
 // Function to disable Clear and Reset Buttons until input name is typed in
 function disableClearResetButton(inputName) {
-  if(inputName.value.length < 0){
+  if(inputName.value.length < 1){
  
   clearButton.disabled = true;
   resetButton.disabled = true;
@@ -118,7 +124,7 @@ function disableClearResetButton(inputName) {
 }};
 //Function to disable Clear buttons 
 function disableClearButton(inputName) {
-if(inputName.value.length< 0 ){
+if(inputName.value.length < 1 ){
   resetButton.disabled = true;
 } else {
   resetButton.disabled = false;
@@ -153,11 +159,67 @@ clearButton.addEventListener("click", function() {
   form1.reset();
   form2.reset();
 })
+//Min range higher than guess
+guessInput1.addEventListener("keyup",function(){
+  if (parseInt(guessInput1.value) < parseInt(minInput.value)) { 
+  console.log("working")
+  guess1error.innerText = "Put a number higher than the Min Range";
+  submitButton.disabled = true;
+  } else {
+  guess1error.innerText = ""
+  submitButton.disabled = false
+  }
+});
+//Max range higher than guess
+guessInput2.addEventListener("keyup",function(){
+  if (parseInt(guessInput2.value) > parseInt(maxInput.value)) { 
+  console.log("working")
+  guess2error.innerText = "Put a number lower than the Max Range";
+  submitButton.disabled = true;
+  } else {
+  guess2error.innerText = ""
+  submitButton.disabled = false
+  }
+});
+//Min range higher than Max range
+minInput.addEventListener("keyup",function(){
+  if (parseInt(minInput.value) > parseInt(maxInput.value)) { 
+  console.log("working")
+  minRangeError.innerText = "Put a number lower than the Max Range";
+  update.disabled = true;
+  } else {
+  minRangeError.innerText = ""
+  update.disabled = false
+  }
+});
+maxInput.addEventListener("keyup",function(){
+  if (parseInt(minInput.value) > parseInt(maxInput.value)) { 
+  console.log("working")
+  maxRangeError.innerText = "Put a number higher than the Min Range";
+  update.disabled = true;
+  } else {
+  maxRangeError.innerText = ""
+  update.disabled = false
+  }
+});
+
+
+
+/*
+
+
+
+
+
+
+
+
+
+
 
 //Boom Card
 //Winner 
-
-
+/*
 submitButton.addEventListener('click', function(e) {
   if (guessInputValue1 === randomNumber) {
   wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
@@ -183,15 +245,17 @@ submitButton.addEventListener('click', function(e) {
 }  else {
   
 }});
-
+/*
 guessInput1.addEventListener('keyup', function(e) {
   if (parseInt(guessInput1.value) < minInput.value) {
-  submitButton.disabled = true;
+  submitButton.disabled = true
+  guess1error.innerHTML = "<p>Please enter a number that is higher than the Min Range</p>"
+
   }else {
 
   }
 });
-
+*/
 
 
           
