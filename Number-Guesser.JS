@@ -44,10 +44,13 @@ function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
 
 //Updates Current Range on DOM
+//Keeps range between 0 and 800
 
 update.addEventListener('click', function(e) {
   if (maxInput.value.length < 1 || minInput.value.length < 1) {
-  updateError.innerText = "Please put Numbers into the Min and Max Range";
+  updateError.innerText = "Please put Numbers into the Min and Max Range"; 
+  } else if (parseInt(minInput.value) < 1 || parseInt(maxInput.value) > 800) {
+  updateError.innerText = "Please, choose a range between 0 and 800";
   } else {
   updateError.innerText = "";  
 	lowOutput.innerText= minInput.value;
@@ -55,7 +58,7 @@ update.addEventListener('click', function(e) {
 	var maxValue = parseInt(maxInput.value);
 	var minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
-	console.log(randomNumber)
+	console.log(randomNumber) 
 }});
 
 //Updates Challenger 1 Name on DOM
@@ -138,7 +141,23 @@ if(inputName.value.length < 1 ){
 //Clear and Reset get disabled up keystroke on Name Inputs 
 nameInput1.addEventListener("keyup",function(){
   disableClearButton(nameInput1);
+//   var alphanumericError = document.querySelector("alphanumeric-error");
+//   var regex = /^[0-9a-zA-Zs]+$/;
+//   if(nameInput1.value !== regex.test) {
+//   alphanumericError.innerText = "Please use only numbers and letters";
+// }
 });
+
+// function alphaNumericCheck() {
+//   var alphanumericError = document.querySelector("alphanumeric-error");
+//   var regex = /^[0-9a-zA-Zs]+$/;
+//   nameInput1.addEventListener("keyup",function(){
+//   if(nameInput.value !== regex.test) {
+//   alphanumericError.innerText = "Please, use only numbers and letters";
+// }
+// })
+// };
+
 nameInput2.addEventListener("keyup",function(){
   disableClearButton(nameInput2);
 });
@@ -263,8 +282,7 @@ guessInput1.addEventListener('keyup', function(e) {
 });
 */
 
-
-          
+ 
 
 
 
