@@ -39,9 +39,28 @@ var updateError = document.querySelector(".update-error")
 var guessCount = 0;
 
 
-
 function getRandomInt(minValue, maxValue) {
-  	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;};
+  	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+  }
+function challengerwin (nameInput) {
+    wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
+          <section class="vs">\
+            <h3>' + nameInput1.value + '</h3>\
+            <p>vs</p>\
+            <h3>'+ nameInput2.value + '</h3>\
+          </section>\
+          <section class="winner">\
+            <h1>' +  nameInput + '</h1>\
+            <p id="winner-light">WINNER</p>\
+          </section>\
+          <section class="results">\
+            <p class="guess-count">' + guessCount+ ' GUESSES</p>\
+            <p>0 MINUTES</p>\
+            <button class="remove">X</button>\
+          </section>\
+          </article>\
+');
+}
 
 //Updates Current Range on DOM
 
@@ -55,8 +74,18 @@ update.addEventListener('click', function(e) {
 	var maxValue = parseInt(maxInput.value);
 	var minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
-	console.log(randomNumber)
+	console.log(randomNumber);
 }});
+
+// Random Number Generator at Win
+function winnerNewNumber () {
+  var maxValue = parseInt(maxInput.value) + 10;
+  var minValue = parseInt(minInput.value) - 10;
+  lowOutput.innerText= minValue 
+  highOutput.innerText= maxValue 
+  getRandomInt(minValue, maxValue);
+  console.log(randomNumber);
+}
 
 //Updates Challenger 1 Name on DOM
 submitButton.addEventListener('click', function(e) {
@@ -80,8 +109,13 @@ submitButton.addEventListener('click', function(e) {
   });
 //Winner 
 submitButton.addEventListener('click', function(e) {
+  guessCount = guessCount + 2
   if (guessInputValue1 === randomNumber) {
   chall1response.innerText = "Boom!";
+  challengerwin (nameInput1.value)
+  winnerNewNumber(); 
+  form1.reset();
+  form2.reset();
 } else if (guessInputValue1 > randomNumber){
   chall1response.innerText = "that's too high" 
 } else {
@@ -89,6 +123,10 @@ submitButton.addEventListener('click', function(e) {
 }  
   if (guessInputValue2 === randomNumber) {
   chall2response.innerText = "Boom!";
+  challengerwin (nameInput2.value)
+  winnerNewNumber(); 
+  form1.reset();
+  form2.reset();
 } else if (guessInputValue2 > randomNumber){
   chall2response.innerText = "that's too high" 
 } else {
@@ -102,8 +140,8 @@ submitButton.addEventListener('click', function(e) {
 resetButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < challInputs.length ; i++)
     challInputs[i].reset();
-  var maxValue = parseInt(maxInput.value);
-  var minValue = parseInt(minInput.value);
+  //var maxValue = parseInt(maxInput.value);
+  //var minValue = parseInt(minInput.value);
   getRandomInt(minValue, maxValue);
   console.log(randomNumber)
 });
@@ -211,60 +249,7 @@ maxInput.addEventListener("keyup",function(){
 
 
 
-/*
-
-
-
-
-
-
-
-
-
-
-
-//Boom Card
-//Winner 
-/*
-submitButton.addEventListener('click', function(e) {
-  if (guessInputValue1 === randomNumber) {
-  wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
-          <section class="vs">\
-            <h3 id="scorename">name</h3>\
-            <p>vs</p>\
-            <h3 class="challenger-2-name">chall2Name</h3>\
-          </section>\
-          <section class="winner">\
-            <h1>chall1Name</h1>\
-            <p id="winner-light">WINNER</p>\
-          </section>\
-          <section class="results">\
-            <p class="guess-count">0 GUESSES</p>\
-            <p>0 MINUTES</p>\
-            <button class="remove">X</button>\
-          </section>\
-          </article>\
-');
-}
-  if (guessInputValue2 === randomNumber) {
-
-}  else {
-  
-}});
-/*
-guessInput1.addEventListener('keyup', function(e) {
-  if (parseInt(guessInput1.value) < minInput.value) {
-  submitButton.disabled = true
-  guess1error.innerHTML = "<p>Please enter a number that is higher than the Min Range</p>"
-
-  }else {
-
-  }
-});
-*/
-
-
-          
+     
 
 
 

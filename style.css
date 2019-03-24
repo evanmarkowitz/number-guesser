@@ -260,7 +260,7 @@ input {
 @media(max-width: 770px) {
 
 .column {
-  width: 65%;
+  width: 100%;
 }
 
 @media(max-width: 600px) {
