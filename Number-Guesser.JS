@@ -67,24 +67,26 @@ function challengerwin (nameInput) {
 //Updates Current Range on DOM
 
 update.addEventListener('click', function(e) {
+  guessCount = 0;
   if (maxInput.value.length < 1 || minInput.value.length < 1) {
   updateError.innerText = "Please put Numbers into the Min and Max Range";
   } else {
   updateError.innerText = "";  
 	lowOutput.innerText= minInput.value;
 	highOutput.innerText= maxInput.value;
-	var maxValue = parseInt(maxInput.value);
-	var minValue = parseInt(minInput.value);
+	maxValue = parseInt(maxInput.value);
+	minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
 	console.log(randomNumber);
 }});
 
 // Random Number Generator at Win
 function winnerNewNumber () {
-  maxValue = parseInt(maxInput.value) + 10;
-  minValue = parseInt(minInput.value) - 10;
-  lowOutput.innerText= minValue 
-  highOutput.innerText= maxValue 
+  maxValue = maxValue + 10;
+  minValue = minValue - 10;
+  lowOutput.innerText= minValue;
+  highOutput.innerText= maxValue; 
+  guessCount = 0;
   getRandomInt(minValue, maxValue);
   console.log(randomNumber);
 }
@@ -93,7 +95,6 @@ function winnerNewNumber () {
 submitButton.addEventListener('click', function(e) {
 	for (var i = 0 ; i < chall1Name.length ; i++)
 	chall1Name[i].innerText = nameInput1.value;
-		
 });
 //Updates Challenger 2 Name on Dom
 submitButton.addEventListener('click', function(e) {
@@ -111,7 +112,7 @@ submitButton.addEventListener('click', function(e) {
   });
 //Winner 
 submitButton.addEventListener('click', function(e) {
-  guessCount = guessCount + 2
+  guessCount = guessCount + 2;
   if (guessInputValue1 === randomNumber) {
   chall1response.innerText = "Boom!";
   challengerwin (nameInput1.value)
@@ -142,6 +143,7 @@ submitButton.addEventListener('click', function(e) {
 resetButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < challInputs.length ; i++)
     challInputs[i].reset();
+  guessCount = 0;
   getRandomInt(minValue, maxValue);
   console.log(randomNumber)
 });
@@ -205,22 +207,27 @@ clearButton.addEventListener("click", function() {
 })
 //Min range higher than guess
 guessInput1.addEventListener("keyup",function(){
-  if (parseInt(guessInput1.value) < minValue ){ 
+  if (parseInt(guessInput1.value) > maxValue ){ 
   console.log("working")
-  guess1error.innerText = "Put a number higher than the Min Range";
+  guess1error.innerText = "Put a number lower than the Max Range";
   submitButton.disabled = true;
+  } else if (parseInt(guessInput1.value) < minValue ) {
+    guess1error.innerText = "Put a number higher than the Min Range";
   } else {
   guess1error.innerText = ""
   submitButton.disabled = false
   }
 });
-//Max range higher than guess
+//Max range higher than guess 2
 guessInput2.addEventListener("keyup",function(){
   if (parseInt(guessInput2.value) > maxValue ){ 
   console.log("working")
   guess2error.innerText = "Put a number lower than the Max Range";
   submitButton.disabled = true;
-  } else {
+  } else if (parseInt(guessInput2.value) < minValue ) {
+    guess2error.innerText = "Put a number higher than the Min Range";
+  }
+  else {
   guess2error.innerText = ""
   submitButton.disabled = false
   }

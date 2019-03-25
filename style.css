@@ -186,8 +186,10 @@ input {
   flex: 1;
   margin: 20px 10px 0px 0px;
 }
-.error-message p{
+.error-message {
   color: red;
+  font-size: 12px;
+  line-height: 2px;
 }
 
 .column2 {
