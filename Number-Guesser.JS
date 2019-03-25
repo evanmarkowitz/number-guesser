@@ -65,11 +65,14 @@ function challengerwin (nameInput) {
 }
 
 //Updates Current Range on DOM
-
+//Keeps range between 0 and 800
+/*
 update.addEventListener('click', function(e) {
   guessCount = 0;
   if (maxInput.value.length < 1 || minInput.value.length < 1) {
-  updateError.innerText = "Please put Numbers into the Min and Max Range";
+  updateError.innerText = "Please put Numbers into the Min and Max Range"; 
+  } else if (parseInt(minInput.value) < 1 || parseInt(maxInput.value) > 800) {
+  updateError.innerText = "Please, choose a range between 0 and 800";
   } else {
   updateError.innerText = "";  
 	lowOutput.innerText= minInput.value;
@@ -78,7 +81,7 @@ update.addEventListener('click', function(e) {
 	minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
 	console.log(randomNumber);
-}});
+}});;*/
 
 // Random Number Generator at Win
 function winnerNewNumber () {
@@ -179,6 +182,28 @@ if(inputName.value.length < 1 ){
 nameInput1.addEventListener("keyup",function(){
   disableClearButton(nameInput1);
 });
+
+//Alphanumeric error
+nameInput1.addEventListener('keyup', function() {
+  var nameInput1Error = document.querySelector(".name-input-1-error");
+  var regex = /^[0-9a-zA-Zs]+$/;
+  if(regex.test(nameInput1.value) !== true) {
+  nameInput1Error.innerText = "Please, use only numbers and letters";
+} else {
+nameInput1Error.innerText = "";
+}
+});
+
+nameInput2.addEventListener('keyup', function() {
+  var nameInput2Error = document.querySelector(".name-input-2-error");
+  var regex = /^[0-9a-zA-Zs]+$/;
+  if(regex.test(nameInput2.value) !== true) {
+  nameInput2Error.innerText = "Please, use only numbers and letters";
+} else {
+nameInput2Error.innerText = "";
+}
+});
+
 nameInput2.addEventListener("keyup",function(){
   disableClearButton(nameInput2);
 });
@@ -257,8 +282,54 @@ maxInput.addEventListener("keyup",function(){
 
 
 
-     
+/*
 
 
 
 
+
+
+
+
+
+
+
+//Boom Card
+//Winner 
+/*
+submitButton.addEventListener('click', function(e) {
+  if (guessInputValue1 === randomNumber) {
+  wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
+          <section class="vs">\
+            <h3 id="scorename">name</h3>\
+            <p>vs</p>\
+            <h3 class="challenger-2-name">chall2Name</h3>\
+          </section>\
+          <section class="winner">\
+            <h1>chall1Name</h1>\
+            <p id="winner-light">WINNER</p>\
+          </section>\
+          <section class="results">\
+            <p class="guess-count">0 GUESSES</p>\
+            <p>0 MINUTES</p>\
+            <button class="remove">X</button>\
+          </section>\
+          </article>\
+');
+}
+  if (guessInputValue2 === randomNumber) {
+
+}  else {
+  
+}});
+/*
+guessInput1.addEventListener('keyup', function(e) {
+  if (parseInt(guessInput1.value) < minInput.value) {
+  submitButton.disabled = true
+  guess1error.innerHTML = "<p>Please enter a number that is higher than the Min Range</p>"
+
+  }else {
+
+  }
+});
+*/
