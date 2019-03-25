@@ -1,5 +1,5 @@
 var scorecard = document.querySelectorAll('.scorecard');
-var remove = document.querySelector('.remove');
+var removeButton = document.querySelector('.remove');
 var chall_1= document.querySelector('#chall-1');
 var chall_2= document.querySelector('#chall-2');
 var minInput = document.querySelector('#min');
@@ -37,6 +37,8 @@ var minRangeError = document.querySelector(".min-range-error")
 var maxRangeError = document.querySelector(".max-range-error")
 var updateError = document.querySelector(".update-error")
 var guessCount = 0;
+var maxValue;
+var minValue;
 
 
 function getRandomInt(minValue, maxValue) {
@@ -79,8 +81,8 @@ update.addEventListener('click', function(e) {
 
 // Random Number Generator at Win
 function winnerNewNumber () {
-  var maxValue = parseInt(maxInput.value) + 10;
-  var minValue = parseInt(minInput.value) - 10;
+  maxValue = parseInt(maxInput.value) + 10;
+  minValue = parseInt(minInput.value) - 10;
   lowOutput.innerText= minValue 
   highOutput.innerText= maxValue 
   getRandomInt(minValue, maxValue);
@@ -140,8 +142,6 @@ submitButton.addEventListener('click', function(e) {
 resetButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < challInputs.length ; i++)
     challInputs[i].reset();
-  //var maxValue = parseInt(maxInput.value);
-  //var minValue = parseInt(minInput.value);
   getRandomInt(minValue, maxValue);
   console.log(randomNumber)
 });
@@ -205,7 +205,7 @@ clearButton.addEventListener("click", function() {
 })
 //Min range higher than guess
 guessInput1.addEventListener("keyup",function(){
-  if (parseInt(guessInput1.value) < parseInt(minInput.value)) { 
+  if (parseInt(guessInput1.value) < minValue ){ 
   console.log("working")
   guess1error.innerText = "Put a number higher than the Min Range";
   submitButton.disabled = true;
@@ -216,7 +216,7 @@ guessInput1.addEventListener("keyup",function(){
 });
 //Max range higher than guess
 guessInput2.addEventListener("keyup",function(){
-  if (parseInt(guessInput2.value) > parseInt(maxInput.value)) { 
+  if (parseInt(guessInput2.value) > maxValue ){ 
   console.log("working")
   guess2error.innerText = "Put a number lower than the Max Range";
   submitButton.disabled = true;
@@ -246,6 +246,7 @@ maxInput.addEventListener("keyup",function(){
   update.disabled = false
   }
 });
+
 
 
 
