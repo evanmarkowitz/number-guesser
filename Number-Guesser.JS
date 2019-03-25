@@ -141,22 +141,28 @@ if(inputName.value.length < 1 ){
 //Clear and Reset get disabled up keystroke on Name Inputs 
 nameInput1.addEventListener("keyup",function(){
   disableClearButton(nameInput1);
-//   var alphanumericError = document.querySelector("alphanumeric-error");
-//   var regex = /^[0-9a-zA-Zs]+$/;
-//   if(nameInput1.value !== regex.test) {
-//   alphanumericError.innerText = "Please use only numbers and letters";
-// }
 });
 
-// function alphaNumericCheck() {
-//   var alphanumericError = document.querySelector("alphanumeric-error");
-//   var regex = /^[0-9a-zA-Zs]+$/;
-//   nameInput1.addEventListener("keyup",function(){
-//   if(nameInput.value !== regex.test) {
-//   alphanumericError.innerText = "Please, use only numbers and letters";
-// }
-// })
-// };
+//Alphanumeric error
+nameInput1.addEventListener('keyup', function() {
+  var nameInput1Error = document.querySelector(".name-input-1-error");
+  var regex = /^[0-9a-zA-Zs]+$/;
+  if(regex.test(nameInput1.value) !== true) {
+  nameInput1Error.innerText = "Please, use only numbers and letters";
+} else {
+nameInput1Error.innerText = "";
+}
+});
+
+nameInput2.addEventListener('keyup', function() {
+  var nameInput2Error = document.querySelector(".name-input-2-error");
+  var regex = /^[0-9a-zA-Zs]+$/;
+  if(regex.test(nameInput2.value) !== true) {
+  nameInput2Error.innerText = "Please, use only numbers and letters";
+} else {
+nameInput2Error.innerText = "";
+}
+});
 
 nameInput2.addEventListener("keyup",function(){
   disableClearButton(nameInput2);
