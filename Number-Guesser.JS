@@ -36,6 +36,7 @@ var guess2error = document.querySelector(".guess-2-error")
 var minRangeError = document.querySelector(".min-range-error")
 var maxRangeError = document.querySelector(".max-range-error")
 var updateError = document.querySelector(".update-error")
+var submitError = document.querySelector(".submit-error")
 var guessCount = 0;
 var maxValue;
 var minValue;
@@ -44,6 +45,10 @@ var minValue;
 function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   }
+  getRandomInt(1,100);
+  console.log(randomNumber);
+
+
 function challengerwin (nameInput) {
     wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
           <section class="vs">\
@@ -56,33 +61,40 @@ function challengerwin (nameInput) {
             <p id="winner-light">WINNER</p>\
           </section>\
           <section class="results">\
-            <p class="guess-count">' + guessCount+ ' GUESSES</p>\
+            <p class="guess-count">' + guessCount + ' GUESSES</p>\
             <p>0 MINUTES</p>\
             <button class="remove">X</button>\
           </section>\
           </article>\
-');
+          '
+          );
 }
+
+//Remove scorecard
+// 
+// function removeCard(e) {
+//   if(e.target.className === 'remove') {
+//     scorecard.style.display = 'none';
+//   }
+// }
+// removeCard();
 
 //Updates Current Range on DOM
 //Keeps range between 0 and 800
 
 update.addEventListener('click', function(e) {
   guessCount = 0;
-  /*
   if (maxInput.value.length < 1 || minInput.value.length < 1) {
-  updateError.innerText = "Please put Numbers into the Min and Max Range"; 
-  } else if (parseInt(minInput.value) < 1 || parseInt(maxInput.value) > 800) {
-  updateError.innerText = "Please, choose a range between 0 and 800";
+  updateError.innerText = "Please put Numbers into the Min and Max Range";
   } else {
   updateError.innerText = "";  
-  */
 	lowOutput.innerText= minInput.value;
 	highOutput.innerText= maxInput.value;
 	maxValue = parseInt(maxInput.value);
 	minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
 	console.log(randomNumber);
+}
 });
 
 // Random Number Generator at Win
@@ -301,7 +313,13 @@ nameInput2Error.innerText = "";
 }
 });
 
-
+submitButton.addEventListener('click', function(e) {
+  if (nameInput1.value.length < 1 || nameInput2.value.length < 1 || guessIput1.value.length < 1 || guessIput2.value.length < 1) {
+  submitError.innerText = "Please fill out all fields";
+  } else {
+  submitError.innerText = "";
+}
+});
 
 
 /*
