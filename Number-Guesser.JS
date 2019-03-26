@@ -40,6 +40,8 @@ var submitError = document.querySelector(".submit-error")
 var guessCount = 0;
 var maxValue;
 var minValue;
+var guessInput1;
+var guessInput2;
 
 
 function getRandomInt(minValue, maxValue) {
@@ -108,6 +110,18 @@ function winnerNewNumber () {
   console.log(randomNumber);
 }
 
+//Changes Names on Dom
+function changeName(name, nameInput, guessinput, guessoutput) {
+  for (var i = 0 ; i < name.length ; i++)
+  name[i].innerText = nameInput.value;
+  guessoutput.innerText = guessinput.value;
+}
+//Updates Challenger 1 Name on DOM
+submitButton.addEventListener('click', function(e) {
+  changeName(chall1Name, nameInput1, guessInput1, c1GuessOutput);
+  changeName(chall2Name, nameInput2, guessInput2, c2GuessOutput);
+});
+ /*
 //Updates Challenger 1 Name on DOM
 submitButton.addEventListener('click', function(e) {
 	for (var i = 0 ; i < chall1Name.length ; i++)
@@ -117,7 +131,7 @@ submitButton.addEventListener('click', function(e) {
 submitButton.addEventListener('click', function(e) {
   for (var i = 0 ; i < chall2Name.length ; i++)
   chall2Name[i].innerText = nameInput2.value;
-    
+  
 });
 //When Click Submit Button 
 submitButton.addEventListener('click', function(e) {
@@ -126,9 +140,11 @@ submitButton.addEventListener('click', function(e) {
   guessInputValue1 = parseInt(guessInput1.value)
   guessInputValue2 = parseInt(guessInput2.value)
 
-  });
+  }); */
 //Winner 
 submitButton.addEventListener('click', function(e) {
+  guessInputValue1 = parseInt(guessInput1.value)
+  guessInputValue2 = parseInt(guessInput2.value)
   guessCount = guessCount + 2;
   if (guessInputValue1 === randomNumber) {
   chall1response.innerText = "Boom!";
@@ -314,73 +330,10 @@ nameInput2Error.innerText = "";
 });
 
 submitButton.addEventListener('click', function(e) {
-  if (nameInput1.value.length < 1 || nameInput2.value.length < 1 || guessIput1.value.length < 1 || guessIput2.value.length < 1) {
+  if (nameInput1.value.length < 1 || nameInput2.value.length < 1 || guessInput1.value.length < 1 || guessInput2.value.length < 1) {
   submitError.innerText = "Please fill out all fields";
   } else {
   submitError.innerText = "";
 }
 });
 
-
-/*
-
-
-
-=======
->>>>>>> 2ndAttemptFixCommit
-
-nameInput2.addEventListener('keyup', function() {
-  var nameInput2Error = document.querySelector(".name-input-2-error");
-  var regex = /^[0-9a-zA-Zs]+$/;
-  if(regex.test(nameInput2.value) !== true) {
-  nameInput2Error.innerText = "Please, use only numbers and letters";
-} else {
-nameInput2Error.innerText = "";
-}
-});
-
-
-
-
-
-
-
-//Boom Card
-//Winner 
-/*
-submitButton.addEventListener('click', function(e) {
-  if (guessInputValue1 === randomNumber) {
-  wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
-          <section class="vs">\
-            <h3 id="scorename">name</h3>\
-            <p>vs</p>\
-            <h3 class="challenger-2-name">chall2Name</h3>\
-          </section>\
-          <section class="winner">\
-            <h1>chall1Name</h1>\
-            <p id="winner-light">WINNER</p>\
-          </section>\
-          <section class="results">\
-            <p class="guess-count">0 GUESSES</p>\
-            <p>0 MINUTES</p>\
-            <button class="remove">X</button>\
-          </section>\
-          </article>\
-');
-}
-  if (guessInputValue2 === randomNumber) {
-
-}  else {
-  
-}});
-/*
-guessInput1.addEventListener('keyup', function(e) {
-  if (parseInt(guessInput1.value) < minInput.value) {
-  submitButton.disabled = true
-  guess1error.innerHTML = "<p>Please enter a number that is higher than the Min Range</p>"
-
-  }else {
-
-  }
-});
-*/
