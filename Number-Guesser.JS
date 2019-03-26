@@ -66,22 +66,24 @@ function challengerwin (nameInput) {
 
 //Updates Current Range on DOM
 //Keeps range between 0 and 800
-/*
+
 update.addEventListener('click', function(e) {
   guessCount = 0;
+  /*
   if (maxInput.value.length < 1 || minInput.value.length < 1) {
   updateError.innerText = "Please put Numbers into the Min and Max Range"; 
   } else if (parseInt(minInput.value) < 1 || parseInt(maxInput.value) > 800) {
   updateError.innerText = "Please, choose a range between 0 and 800";
   } else {
   updateError.innerText = "";  
+  */
 	lowOutput.innerText= minInput.value;
 	highOutput.innerText= maxInput.value;
 	maxValue = parseInt(maxInput.value);
 	minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
 	console.log(randomNumber);
-}});;*/
+});
 
 // Random Number Generator at Win
 function winnerNewNumber () {
@@ -288,7 +290,6 @@ nameInput1.addEventListener('keyup', function() {
 nameInput1Error.innerText = "";
 }
 });
-<<<<<<< HEAD
 
 nameInput2.addEventListener('keyup', function() {
   var nameInput2Error = document.querySelector(".name-input-2-error");
