@@ -42,7 +42,7 @@ var minValue;
 
 
 function getRandomInt(minValue, maxValue) {
-  	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+    randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   }
 function challengerwin (nameInput) {
     wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
@@ -65,23 +65,20 @@ function challengerwin (nameInput) {
 }
 
 //Updates Current Range on DOM
-//Keeps range between 0 and 800
-/*
+
 update.addEventListener('click', function(e) {
   guessCount = 0;
   if (maxInput.value.length < 1 || minInput.value.length < 1) {
-  updateError.innerText = "Please put Numbers into the Min and Max Range"; 
-  } else if (parseInt(minInput.value) < 1 || parseInt(maxInput.value) > 800) {
-  updateError.innerText = "Please, choose a range between 0 and 800";
+  updateError.innerText = "Please put Numbers into the Min and Max Range";
   } else {
   updateError.innerText = "";  
-	lowOutput.innerText= minInput.value;
-	highOutput.innerText= maxInput.value;
-	maxValue = parseInt(maxInput.value);
-	minValue = parseInt(minInput.value);
-	getRandomInt(minValue, maxValue);
-	console.log(randomNumber);
-}});;*/
+  lowOutput.innerText= minInput.value;
+  highOutput.innerText= maxInput.value;
+  maxValue = parseInt(maxInput.value);
+  minValue = parseInt(minInput.value);
+  getRandomInt(minValue, maxValue);
+  console.log(randomNumber);
+}});
 
 // Random Number Generator at Win
 function winnerNewNumber () {
@@ -96,8 +93,8 @@ function winnerNewNumber () {
 
 //Updates Challenger 1 Name on DOM
 submitButton.addEventListener('click', function(e) {
-	for (var i = 0 ; i < chall1Name.length ; i++)
-	chall1Name[i].innerText = nameInput1.value;
+  for (var i = 0 ; i < chall1Name.length ; i++)
+  chall1Name[i].innerText = nameInput1.value;
 });
 //Updates Challenger 2 Name on Dom
 submitButton.addEventListener('click', function(e) {
@@ -182,28 +179,6 @@ if(inputName.value.length < 1 ){
 nameInput1.addEventListener("keyup",function(){
   disableClearButton(nameInput1);
 });
-
-//Alphanumeric error
-nameInput1.addEventListener('keyup', function() {
-  var nameInput1Error = document.querySelector(".name-input-1-error");
-  var regex = /^[0-9a-zA-Zs]+$/;
-  if(regex.test(nameInput1.value) !== true) {
-  nameInput1Error.innerText = "Please, use only numbers and letters";
-} else {
-nameInput1Error.innerText = "";
-}
-});
-
-nameInput2.addEventListener('keyup', function() {
-  var nameInput2Error = document.querySelector(".name-input-2-error");
-  var regex = /^[0-9a-zA-Zs]+$/;
-  if(regex.test(nameInput2.value) !== true) {
-  nameInput2Error.innerText = "Please, use only numbers and letters";
-} else {
-nameInput2Error.innerText = "";
-}
-});
-
 nameInput2.addEventListener("keyup",function(){
   disableClearButton(nameInput2);
 });
@@ -288,7 +263,6 @@ nameInput1.addEventListener('keyup', function() {
 nameInput1Error.innerText = "";
 }
 });
-<<<<<<< HEAD
 
 nameInput2.addEventListener('keyup', function() {
   var nameInput2Error = document.querySelector(".name-input-2-error");
@@ -299,9 +273,6 @@ nameInput2.addEventListener('keyup', function() {
 nameInput2Error.innerText = "";
 }
 });
-
-
-
 
 /*
 
