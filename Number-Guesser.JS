@@ -38,8 +38,8 @@ var maxRangeError = document.querySelector(".max-range-error")
 var updateError = document.querySelector(".update-error")
 var submitError = document.querySelector(".submit-error")
 var guessCount = 0;
-var maxValue;
-var minValue;
+var maxValue = 100
+var minValue = 1
 var guessInput1;
 var guessInput2;
 
@@ -47,7 +47,7 @@ var guessInput2;
 function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   }
-  getRandomInt(1,100);
+  getRandomInt(minValue, maxValue);
   console.log(randomNumber);
 
 
@@ -71,15 +71,6 @@ function challengerwin (nameInput) {
           '
           );
 }
-
-//Remove scorecard
-// 
-// function removeCard(e) {
-//   if(e.target.className === 'remove') {
-//     scorecard.style.display = 'none';
-//   }
-// }
-// removeCard();
 
 //Updates Current Range on DOM
 //Keeps range between 0 and 800
@@ -127,6 +118,7 @@ submitButton.addEventListener('click', function(e) {
   else {
   changeName(chall1Name, nameInput1, guessInput1, c1GuessOutput);
   changeName(chall2Name, nameInput2, guessInput2, c2GuessOutput);
+  submitError.innerText = "";
   }
 
   if (guessInputValue1 === randomNumber) {
@@ -151,8 +143,6 @@ submitButton.addEventListener('click', function(e) {
 } else {
   chall2response.innerText = "that's too low" 
 }});
-
-
 
 
 //Reset Button Clears Names + Guesses + Creates New Random Number
@@ -256,6 +246,8 @@ guessInput1.addEventListener("keyup",function(){
   submitButton.disabled = false
   }
 });
+
+
 //Max range higher than guess 2
 guessInput2.addEventListener("keyup",function(){
   if (parseInt(guessInput2.value) > maxValue ){ 
@@ -271,6 +263,7 @@ guessInput2.addEventListener("keyup",function(){
   }
 });
 //Min range higher than Max range
+
 minInput.addEventListener("keyup",function(){
   if (parseInt(minInput.value) > parseInt(maxInput.value)) { 
   console.log("working")
