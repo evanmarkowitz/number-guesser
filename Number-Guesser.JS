@@ -49,24 +49,24 @@ clearButton.disabled = true;
 resetButton.disabled = true;
 
 function challengerwin (nameInput) {
-    wrapper.insertAdjacentHTML('afterbegin', '<article class="scorecard">\
-          <section class="vs">\
-            <h3>' + nameInput1.value + '</h3>\
-            <p>vs</p>\
-            <h3>'+ nameInput2.value + '</h3>\
-          </section>\
-          <section class="winner">\
-            <h1>' +  nameInput + '</h1>\
-            <p id="winner-light">WINNER</p>\
-          </section>\
-          <section class="results">\
-            <p class="guess-count">' + guessCount + ' GUESSES</p>\
-            <p>0 MINUTES</p>\
-            <button class="remove">X</button>\
-          </section>\
-          </article>\
-          '
-          );}
+  wrapper.insertAdjacentHTML('afterbegin', 
+    '<article class="scorecard">\
+      <section class="vs">\
+        <h3>' + nameInput1.value + '</h3>\
+        <p>vs</p>\
+        <h3>'+ nameInput2.value + '</h3>\
+      </section>\
+      <section class="winner">\
+        <h1>' +  nameInput + '</h1>\
+        <p id="winner-light">WINNER</p>\
+      </section>\
+      <section class="results">\
+        <p class="guess-count">' + guessCount + ' GUESSES</p>\
+        <p>0 MINUTES</p>\
+        <button class="remove">X</button>\
+      </section>\
+    </article>\ '
+);}
 
 update.addEventListener('click', function(e) {
   guessCount = 0;
