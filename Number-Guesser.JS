@@ -116,36 +116,19 @@ function changeName(name, nameInput, guessinput, guessoutput) {
   name[i].innerText = nameInput.value;
   guessoutput.innerText = guessinput.value;
 }
-//Updates Challenger 1 Name on DOM
-submitButton.addEventListener('click', function(e) {
-  changeName(chall1Name, nameInput1, guessInput1, c1GuessOutput);
-  changeName(chall2Name, nameInput2, guessInput2, c2GuessOutput);
-});
- /*
-//Updates Challenger 1 Name on DOM
-submitButton.addEventListener('click', function(e) {
-	for (var i = 0 ; i < chall1Name.length ; i++)
-	chall1Name[i].innerText = nameInput1.value;
-});
-//Updates Challenger 2 Name on Dom
-submitButton.addEventListener('click', function(e) {
-  for (var i = 0 ; i < chall2Name.length ; i++)
-  chall2Name[i].innerText = nameInput2.value;
-  
-});
-//When Click Submit Button 
-submitButton.addEventListener('click', function(e) {
-  c1GuessOutput.innerText = guessInput1.value;
-  c2GuessOutput.innerText = guessInput2.value;
-  guessInputValue1 = parseInt(guessInput1.value)
-  guessInputValue2 = parseInt(guessInput2.value)
 
-  }); */
 //Winner 
 submitButton.addEventListener('click', function(e) {
   guessInputValue1 = parseInt(guessInput1.value)
   guessInputValue2 = parseInt(guessInput2.value)
   guessCount = guessCount + 2;
+  if (nameInput1.value.length < 1 || nameInput2.value.length < 1 || guessInput1.value.length < 1 || guessInput2.value.length < 1) {
+  submitError.innerText = "Please fill out all fields";}
+  else {
+  changeName(chall1Name, nameInput1, guessInput1, c1GuessOutput);
+  changeName(chall2Name, nameInput2, guessInput2, c2GuessOutput);
+  }
+
   if (guessInputValue1 === randomNumber) {
   chall1response.innerText = "Boom!";
   challengerwin (nameInput1.value)
@@ -329,11 +312,35 @@ nameInput2Error.innerText = "";
 }
 });
 
+
+
+/// Old Code
+ /*
+//Updates Challenger 1 Name on DOM
 submitButton.addEventListener('click', function(e) {
+  for (var i = 0 ; i < chall1Name.length ; i++)
+  chall1Name[i].innerText = nameInput1.value;
+});
+//Updates Challenger 2 Name on Dom
+submitButton.addEventListener('click', function(e) {
+  for (var i = 0 ; i < chall2Name.length ; i++)
+  chall2Name[i].innerText = nameInput2.value;
+  
+});
+//When Click Submit Button 
+submitButton.addEventListener('click', function(e) {
+  c1GuessOutput.innerText = guessInput1.value;
+  c2GuessOutput.innerText = guessInput2.value;
+  guessInputValue1 = parseInt(guessInput1.value)
+  guessInputValue2 = parseInt(guessInput2.value)
+
+  submitButton.addEventListener('click', function(e) {
   if (nameInput1.value.length < 1 || nameInput2.value.length < 1 || guessInput1.value.length < 1 || guessInput2.value.length < 1) {
   submitError.innerText = "Please fill out all fields";
   } else {
   submitError.innerText = "";
 }
 });
+
+  }); */
 
