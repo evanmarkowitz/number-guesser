@@ -193,21 +193,17 @@ input {
 }
 
 .column2 {
-  display: inline-block;
   box-sizing: border-box;
   float: left;
   width: 49%;
   height: 100%;
   background-color: #d1d2d4;
+
 }
 
 .scorecard {
   background-color: white;
-  width: 90%;
   height: 250px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 35px;
   border:  2px solid #aaaaaa;
 }
 
@@ -259,11 +255,22 @@ input {
 .removescorecard {
   display: none;}
 
-@media(max-width: 770px) {
+@media(max-width: 900px) {
 
 .column {
   width: 100%;
 }
+.column2 {
+  width: 100%;
+  display: block;
+}
+
+.command-buttons {
+  flex-direction: column;
+  margin: 0px;
+}
+
+
 
 @media(max-width: 600px) {
 
@@ -288,14 +295,10 @@ display: block;
 }
 
 button {
- height: 26px;
- font-size: x-small;
- font-weight: 300;
- margin: ;
-}
-
-.command-buttons button{
-  margin: -3px 10px 0px -2px;
+ height: 32px;
+ font-size: small;
+ font-weight: 700;
+ margin: 0;
 }
 
 .chall-current-score {
