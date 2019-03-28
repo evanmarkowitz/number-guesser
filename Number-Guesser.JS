@@ -43,30 +43,9 @@ function getRandomInt(minValue, maxValue) {
   	randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   }
   getRandomInt(minValue,maxValue);
-  console.log(randomNumber);
 
 clearButton.disabled = true;
 resetButton.disabled = true;
-
-function challengerwin (nameInput) {
-  wrapper.insertAdjacentHTML('afterbegin', 
-    '<article class="scorecard">\
-      <section class="vs">\
-        <h3>' + nameInput1.value + '</h3>\
-        <p>vs</p>\
-        <h3>'+ nameInput2.value + '</h3>\
-      </section>\
-      <section class="winner">\
-        <h1>' +  nameInput + '</h1>\
-        <p id="winner-light">WINNER</p>\
-      </section>\
-      <section class="results">\
-        <p class="guess-count">' + guessCount + ' GUESSES</p>\
-        <p>0 MINUTES</p>\
-        <button class="remove">X</button>\
-      </section>\
-    </article>\ '
-);}
 
 update.addEventListener('click', function(e) {
   guessCount = 0;
@@ -79,7 +58,6 @@ update.addEventListener('click', function(e) {
 	maxValue = parseInt(maxInput.value);
 	minValue = parseInt(minInput.value);
 	getRandomInt(minValue, maxValue);
-	console.log(randomNumber);
 }
 });
 
@@ -91,17 +69,16 @@ function winnerNewNumber () {
   highOutput.innerText = maxValue; 
   guessCount = 0;
   getRandomInt(minValue, maxValue);
-  console.log(randomNumber);
 }
 
-//Changes Names on Dom
+//Function to Changes Names on Dom
 function changeName(name, nameInput, guessinput, guessoutput) {
   for (var i = 0 ; i < name.length ; i++)
   name[i].innerText = nameInput.value;
   guessoutput.innerText = guessinput.value;
 }
 
-//Winner 
+//Submit Button 
 submitButton.addEventListener('click', function(e) {
   guessInputValue1 = parseInt(guessInput1.value);
   guessInputValue2 = parseInt(guessInput2.value);
@@ -143,7 +120,6 @@ resetButton.addEventListener('click', function(e) {
   challInputs[i].reset();
   guessCount = 0;
   getRandomInt(minValue, maxValue);
-  console.log(randomNumber)
 });
 
 // Function to disable Clear and Reset Buttons until input name is typed in
@@ -206,7 +182,6 @@ guessInput2.addEventListener('keyup', function() {
 //Min Max range Errors
 function rangeConflict(errorLoc, errorMess) {
   if (parseInt(minInput.value) > parseInt(maxInput.value)) { 
-  console.log("working")
   errorLoc.innerText = errorMess;
   update.disabled = true;
   } else {
@@ -241,144 +216,22 @@ nameInput2.addEventListener('keyup', function(){
   disableClearButton(nameInput2);
 });
 
-// nameInput1.addEventListener('keyup', function() {
-//   var nameInput1Error = document.querySelector(".name-input-1-error");
-//   var regex = /^[0-9a-zA-Zs]+$/;
-//   if(regex.test(nameInput1.value) !== true) {
-//   nameInput1Error.innerText = "Please, use only numbers and letters";
-// } else { 
-//   nameInput1Error.innerText = "";
-// }
-// });
-
-// nameInput2.addEventListener('keyup', function() {
-//   var nameInput2Error = document.querySelector(".name-input-2-error");
-//   var regex = /^[0-9a-zA-Zs]+$/;
-//   if(regex.test(nameInput2.value) !== true) {
-//   nameInput2Error.innerText = "Please, use only numbers and letters";
-// } else {
-// nameInput2Error.innerText = "";
-// }
-// });
-
-
-
-/// Old Code
- /*
-//Updates Challenger 1 Name on DOM
-submitButton.addEventListener('click', function(e) {
-  for (var i = 0 ; i < chall1Name.length ; i++)
-  chall1Name[i].innerText = nameInput1.value;
-});
-//Updates Challenger 2 Name on Dom
-submitButton.addEventListener('click', function(e) {
-  for (var i = 0 ; i < chall2Name.length ; i++)
-  chall2Name[i].innerText = nameInput2.value;
-  
-});
-//When Click Submit Button 
-submitButton.addEventListener('click', function(e) {
-  c1GuessOutput.innerText = guessInput1.value;
-  c2GuessOutput.innerText = guessInput2.value;
-  guessInputValue1 = parseInt(guessInput1.value)
-  guessInputValue2 = parseInt(guessInput2.value)
-
-  submitButton.addEventListener('click', function(e) {
-  if (nameInput1.value.length < 1 || nameInput2.value.length < 1 || guessInput1.value.length < 1 || guessInput2.value.length < 1) {
-  submitError.innerText = "Please fill out all fields";
-  } else {
-  submitError.innerText = "";
-}
-});
-
-  }); */
-
-  //Min range higher than guess
-// guessInput1.addEventListener("keyup",function(){
-//   if (parseInt(guessInput1.value) > maxValue ){ 
-//   console.log("working")
-//   guess1error.innerText = "Put a number lower than the Max Range";
-//   submitButton.disabled = true;
-//   } else if (parseInt(guessInput1.value) < minValue ) {
-//     guess1error.innerText = "Put a number higher than the Min Range";
-//   } else {
-//   guess1error.innerText = ""
-//   submitButton.disabled = false
-//   }
-// });
-// //Max range higher than guess 2
-// guessInput2.addEventListener("keyup",function(){
-//   if (parseInt(guessInput2.value) > maxValue ){ 
-//   console.log("working")
-//   guess2error.innerText = "Put a number lower than the Max Range";
-//   submitButton.disabled = true;
-//   } else if (parseInt(guessInput2.value) < minValue ) {
-//     guess2error.innerText = "Put a number higher than the Min Range";
-//   }
-//   else {
-//   guess2error.innerText = ""
-//   submitButton.disabled = false
-//   }
-// });
-
-//Min range higher than Max range
-// minInput.addEventListener("keyup",function(){
-//   if (parseInt(minInput.value) > parseInt(maxInput.value)) { 
-//   console.log("working")
-//   minRangeError.innerText = "Put a number lower than the Max Range";
-//   update.disabled = true;
-//   } else {
-//   minRangeError.innerText = ""
-//   update.disabled = false
-//   }
-// });
-// maxInput.addEventListener("keyup",function(){
-//   if (parseInt(minInput.value) > parseInt(maxInput.value)) { 
-//   console.log("working")
-//   maxRangeError.innerText = "Put a number higher than the Min Range";
-//   update.disabled = true;
-//   } else {
-//   maxRangeError.innerText = ""
-//   update.disabled = false
-//   }
-// });
-//Alphanumeric error
-// nameInput1.addEventListener('keyup', function() {
-//   var nameInput1Error = document.querySelector(".name-input-1-error");
-//   var regex = /^[0-9a-zA-Zs]+$/;
-//   if(regex.test(nameInput1.value) !== true) {
-//   nameInput1Error.innerText = "Please, use only numbers and letters";
-// } else {
-// nameInput1Error.innerText = "";
-// }
-// });
-
-// nameInput2.addEventListener('keyup', function() {
-//   var nameInput2Error = document.querySelector(".name-input-2-error");
-//   var regex = /^[0-9a-zA-Zs]+$/;
-//   if(regex.test(nameInput2.value) !== true) {
-//   nameInput2Error.innerText = "Please, use only numbers and letters";
-// } else {
-// nameInput2Error.innerText = "";
-// }
-// });
-//Clear and Reset get disabled up keystroke on Name Inputs 
-// nameInput1.addEventListener("keyup",function(){
-//   disableClearButton(nameInput1);
-// });
-
-// nameInput2.addEventListener("keyup",function(){
-//   disableClearButton(nameInput2);
-// });
-//Clear gets disabled upon keystroke on Guess Inputs
-// guessInput1.addEventListener("keyup",function(){
-//   disableClearResetButton(guessInput1);
-// });
-// guessInput2.addEventListener("keyup",function(){
-//   disableClearResetButton(guessInput2);
-// });
-// var minInputNumber = parseInt(minInput.value);
-// var maxInputNumber = parseInt(maxInput.value);
-// var chall_1= document.querySelector('#chall-1');
-// var chall_2= document.querySelector('#chall-2');
+function challengerwin (nameInput) {
+  wrapper.insertAdjacentHTML('afterbegin', 
+    '<article class="scorecard">\
+      <section class="vs">\
+        <h3>' + nameInput1.value + '</h3>\
+        <p>vs</p>\
+        <h3>'+ nameInput2.value + '</h3>\
+      </section>\
+      <section class="winner">\
+        <h1>' +  nameInput + '</h1>\
+        <p id="winner-light">WINNER</p>\
+      </section>\
+      <section class="results">\
+        <p class="guess-count">' + guessCount + ' GUESSES</p>\
+        <button class="remove">X</button>\
+      </section>\
+    </article>\ '
+);}
 
