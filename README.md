@@ -4,8 +4,8 @@ Our first paired project in Mod 1 1903 at Turing School of Software and Design i
 
 ## Contributors
 ****
-Evan Markowitz
-Brandy Mello
+  + Evan Markowitz
+  + Brandy Mello
 
 ## Our Number Guesser
 ****
